@@ -11,59 +11,91 @@
         # roger
 
 import time
-print("Seja bem vindo a aventura de...")
-time.sleep(2)
-nome_jogador = input(f"???: A é qual é seu nome? \n meu nome é ")
-time.sleep(2)
+# print("Seja bem vindo a aventura de...")
+# time.sleep(2)
+# nome_jogador = input(f"???: A é qual é seu nome? \n meu nome é ")
+# time.sleep(2)
 
 
-class atributos:
-    def __init__(self, vida_jogador, dano_jogador, velocidade_jogador, conh_magia_jogador, ferraria):
-        self.vida_jogador = vida_jogador
-        self.dano_jogador = dano_jogador
-        self.velocidade_jogador = velocidade_jogador
-        self.conh_magia_jogador = conh_magia_jogador
-        self.ferraria = ferraria   
+# class atributos:
+#     def __init__(self, vida_jogador, dano_jogador, velocidade_jogador, conh_magia_jogador, ferraria):
+#         self.vida_jogador = vida_jogador
+#         self.dano_jogador = dano_jogador
+#         self.velocidade_jogador = velocidade_jogador
+#         self.conh_magia_jogador = conh_magia_jogador
+#         self.ferraria = ferraria   
 
 
-while True:    
-    escolha_d_raca = input("\nE qual de qual raça você quer ser? \n1-humano\n   -força maior\n   -status basicos\n2-Anão\n   -Velocidade reduzida\n   -Força reduzida\n   -Vida maior\n   -passa por lugares pequenos\n   -fabrição na ferraria liberado\n3-Elfo\n   -Conhecimento em magia\n   -conhecimento da floresta\n   -status basicos\nSua escolha:")
-    raca = ""
-    if escolha_d_raca == "1":
-        raca = "Humano"
-        status_jogador = atributos(100, 15, 10, 0, False)
-        break
-    elif escolha_d_raca == "2":
-        raca = "Anão"
-        status_jogador = atributos(130, 6, 6, 0, True)
-        break
-    elif escolha_d_raca == "3":
-        raca = "Elfo"
-        status_jogador = atributos(100, 10, 10, 10, False)
-        break
-    else:
-        time.sleep(1)
-        print("Insira uma raça valida")
-        time.sleep(2)
+# while True:    
+#     escolha_d_raca = input("\nE qual de qual raça você quer ser? \n1-humano\n   -força maior\n   -status basicos\n2-Anão\n   -Velocidade reduzida\n   -Força reduzida\n   -Vida maior\n   -passa por lugares pequenos\n   -fabrição na ferraria liberado\n3-Elfo\n   -Conhecimento em magia\n   -conhecimento da floresta\n   -status basicos\nSua escolha:")
+#     raca = ""
+#     if escolha_d_raca == "1":
+#         raca = "Humano"
+#         status_jogador = atributos(100, 15, 10, 0, False)
+#         break
+#     elif escolha_d_raca == "2":
+#         raca = "Anão"
+#         status_jogador = atributos(130, 6, 6, 0, True)
+#         break
+#     elif escolha_d_raca == "3":
+#         raca = "Elfo"
+#         status_jogador = atributos(100, 10, 10, 10, False)
+#         break
+#     else:
+#         time.sleep(1)
+#         print("Insira uma raça valida")
+#         time.sleep(2)
 
-time.sleep(2)
-print("\n???: Oh obrigado, então recomeçando")
-time.sleep(2)
-print(f"Seja bem vindo a aventura de {nome_jogador}")
-time.sleep(2)
-print(f"{nome_jogador}: Só um minuto, Quem é você?")
-time.sleep(2)
-print("???: No momento não interessa pra Você, algum dia você acaba descobrindo")
-time.sleep(2)
-print("???: Mas agora o resto é com você, só não morre ok?")
-time.sleep(2)
-print(f"{nome_jogador}: Ok...")
-time.sleep(2)
-print(f"{nome_jogador}: Pra aonde vou agora?")
-time.sleep(2)
-print(f"{nome_jogador}: Ó tem uma cidade logo ali na frente")
-time.sleep(2)
-print("---Na cidade---")
+# time.sleep(2)
+# print("\n???: Oh obrigado, então recomeçando")
+# time.sleep(2)
+# print(f"Seja bem vindo a aventura de {nome_jogador}")
+# time.sleep(2)
+# print(f"{nome_jogador}: Só um minuto, Quem é você?")
+# time.sleep(2)
+# print("???: No momento não interessa pra Você, algum dia você acaba descobrindo")
+# time.sleep(2)
+# print("???: Mas agora o resto é com você, só não morre ok?")
+# time.sleep(2)
+# print(f"{nome_jogador}: Ok...")
+# time.sleep(2)
+# print(f"{nome_jogador}: Pra aonde vou agora?")
+# time.sleep(2)
+# print(f"{nome_jogador}: Ó tem uma cidade logo ali na frente")
+# time.sleep(2)
+# print("---Na cidade---")
+
+dia = 1
+    # cidade
+        # ferreiro          
+        # lojas
+        # cultos
+            # senha do tinhoso
+                # aleatoria toda nova vez
+        # escolas de magia
+            # enem -> tira nota boa -> escola de graça
+            # enem -> tira nota ruim -> a cada 10 aula
+            # enem uma vez a cada 60 dias
+def ferreiro():
+    time.sleep(2)
+    print("---Na ferraria---")
+    decisao = input("O que deseja fazer?\n 1-Falar com o ferreiro\n 2-Forjar\n 3-Sair\nEscolha:")
+    if decisao == "1" and dia <= 5:
+        print("Ferreiro: Se deseja forjar alguma arma volte outro dia estou sem suprimentos")
+        decisao2 = input("\n1-Sabe quando chega novos suprimentos?      2-Ok,Obrigado\nEscolha:")
+        if decisao2 == "1":
+            print(f"Ferreiro: provavelmente daqui a {5 - dia} dias")
+        elif decisao2 == "2":
+            print("a") # voltar para cidade
+    elif decisao =="2":
+        print("em breve")
+    elif decisao == "3":
+        print("a") # voltar para cidade
+
+ferreiro()
+
+
+
 
 
 # iniciação a aventura 
