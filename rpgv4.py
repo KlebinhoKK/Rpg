@@ -8,7 +8,7 @@
             # velocidade reduzida, força reduzida, passa por lugares pequenos, buff de ferraria, maior defesa
         # elfo
             # bonus de conhecimentos da floresta e de magia
-        # 
+        # roger
 
 import time
 print("Seja bem vindo a aventura de...")
