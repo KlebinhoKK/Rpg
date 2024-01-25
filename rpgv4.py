@@ -18,7 +18,6 @@ time.sleep(2)
 nome_jogador = input(f"???: A é qual é seu nome? \n meu nome é ")
 time.sleep(2)
 
-
 class atributos:
     def __init__(self, vida_jogador, dano_jogador, velocidade_jogador, conh_magia_jogador, ferraria):
         self.vida_jogador = vida_jogador
@@ -47,7 +46,9 @@ while True:
         time.sleep(1)
         print("Insira uma raça valida")
         time.sleep(2)
+    clear_terminal()
 
+# dialogo inicial
 time.sleep(2)
 print("\n???: Oh obrigado, então recomeçando")
 time.sleep(2)
@@ -65,23 +66,33 @@ print(f"{nome_jogador}: Pra aonde vou agora?")
 time.sleep(2)
 print(f"{nome_jogador}: Ó tem uma cidade logo ali na frente")
 time.sleep(2)
+
+# set de coisas para cultista
 import random
 senha = random.randint(34566, 94563)
 cultista_morto = False
-print("---Na cidade---")
+cultistas = ["Carlos", "Fernanda", "Ricardo", "Amanda", "João", "Larissa", "Pedro", "Bianca", "Felipe", "Gabriela", "Eduardo", "Isabel", "Miguel", "Thais", "Arthur", "Marina", "Rodrigo", "Beatriz", "Daniel", "Laura"]
+cultista = random.choice(cultistas)
 
+# tempo
 dia = 1
 tempo = "dia"
-    # cidade
-        # ferreiro          
-        # lojas
-        # cultos
-            # senha do tinhoso
-                # aleatoria toda nova vez
-        # escolas de magia
-            # enem -> tira nota boa -> escola de graça
-            # enem -> tira nota ruim -> a cada 10 aula
-            # enem uma vez a cada 60 dias
+
+# Inicio
+def cidade():
+    clear_terminal()
+    print("---Na cidade---")
+cidade()
+
+# cidade         
+    # lojas
+    # escolas de magia
+        # enem -> tira nota boa -> escola de graça
+        # enem -> tira nota ruim -> a cada 10 aula
+        # enem uma vez a cada 60 dias
+    # guilda
+
+# ferreiro
 def ferreiro():
     time.sleep(2)
     print("---Na ferraria---")
@@ -91,15 +102,15 @@ def ferreiro():
         decisao2 = input("\n1-Sabe quando chega novos suprimentos?      2-Ok,Obrigado\nEscolha:")
         if decisao2 == "1":
             print(f"Ferreiro: provavelmente daqui a {5 - dia} dias")
+            cidade()
         elif decisao2 == "2":
-            clear_terminal()
-            print("a") # voltar para cidade
+            cidade()
     elif decisao =="2":
-        print(f"Ferreiro: provavelmente daqui a {5 - dia} dias")
+        cidade()
     elif decisao == "3":
-        clear_terminal()
-        print("a") # voltar para cidade
-ferreiro()
+        cidade()
+
+# cultos -> senha do tinhoso -> aleatoria toda nova vez
 def culto():
     time.sleep(1)
     print("---Nos becos---")
@@ -110,15 +121,16 @@ def culto():
     decisao = input("Oque deseja fazer?\n 1-Bater na porta      2-Sair\nEscolha:")
     if cultista_morto == False:
         if decisao == "1":
+            time.sleep(1)
             print("?: Uh.. Quem bateu na porta?")
             time.sleep(4)
             print("?: Quem é você? O que esta fazendo aqui?\n")
             input(f"1-Eu estava passando por aqui e achei essa porta      2-Nada não, ja estou saindo\n Escolha:")
             time.sleep(2)
             print("ENTÃO VAZA, NÃO TEM O QUE VOCÊ VER AQUI")
-            print("a") # voltar para cidade
+            cidade()
         elif decisao == "2":
-            print("a") # voltar para cidade
+            cidade()
     elif cultista_morto == True:
         print("?: Uh.. Quem bateu na porta?")
         time.sleep(4)
@@ -135,10 +147,6 @@ def culto():
 
 # iniciação a aventura 
     # escolher classe
-        # mago 
-        # guerreiro
-        # arqueiro
-
 class classe:
     def __init__(self, dano_magia, dano_distancia, dano_corpoacorpo):
         self.dano_magia = dano_magia
