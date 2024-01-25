@@ -9,7 +9,9 @@
         # elfo
             # bonus de conhecimentos da floresta e de magia
         # roger
-
+def clear_terminal():
+    import os
+    print("\n" * os.get_terminal_size().lines)
 import time
 print("Seja bem vindo a aventura de...")
 time.sleep(2)
@@ -65,6 +67,7 @@ print(f"{nome_jogador}: Ó tem uma cidade logo ali na frente")
 time.sleep(2)
 import random
 senha = random.randint(34566, 94563)
+cultista_morto = False
 print("---Na cidade---")
 
 dia = 1
@@ -89,12 +92,14 @@ def ferreiro():
         if decisao2 == "1":
             print(f"Ferreiro: provavelmente daqui a {5 - dia} dias")
         elif decisao2 == "2":
+            clear_terminal()
             print("a") # voltar para cidade
     elif decisao =="2":
         print(f"Ferreiro: provavelmente daqui a {5 - dia} dias")
     elif decisao == "3":
+        clear_terminal()
         print("a") # voltar para cidade
-
+ferreiro()
 def culto():
     time.sleep(1)
     print("---Nos becos---")
@@ -103,13 +108,23 @@ def culto():
     time.sleep(2)
     print("Você acha uma porta escondida entre os becos")
     decisao = input("Oque deseja fazer?\n 1-Bater na porta      2-Sair\nEscolha:")
-    if decisao == "1":
+    if cultista_morto == False:
+        if decisao == "1":
+            print("?: Uh.. Quem bateu na porta?")
+            time.sleep(4)
+            print("?: Quem é você? O que esta fazendo aqui?\n")
+            input(f"1-Eu estava passando por aqui e achei essa porta      2-Nada não, ja estou saindo\n Escolha:")
+            time.sleep(2)
+            print("ENTÃO VAZA, NÃO TEM O QUE VOCÊ VER AQUI")
+            print("a") # voltar para cidade
+        elif decisao == "2":
+            print("a") # voltar para cidade
+    elif cultista_morto == True:
         print("?: Uh.. Quem bateu na porta?")
         time.sleep(4)
         print("?: Quem é você? O que esta fazendo aqui?\n")
-        decisao2 = input(f"1-Eu estava passando por aqui e achei essa porta      2-Nada não, ja estou saindo\n Escolha:")
-        if decisao2 == "1":
-            
+        input(f"1-Eu estava passando por aqui e achei essa porta      2-Nada não, ja estou saindo\n3-Sou {nome_cultista} Escolha:")
+
 
 
 
