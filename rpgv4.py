@@ -1,11 +1,11 @@
 # rpgv4
 import time
-# clear terminal
+# # clear terminal
 def clear_terminal():
     import os
     os. system('cls')
 
-# Set de atributos
+# # Set de atributos
 class atributos:
     def __init__(self, vida_jogador, dano_jogador, velocidade_jogador, conh_magia_jogador, ferraria):
         self.vida_jogador = vida_jogador
@@ -14,77 +14,53 @@ class atributos:
         self.conh_magia_jogador = conh_magia_jogador
         self.ferraria = ferraria   
 
-# tempo
+# # escolher classe
+class classe:
+    def __init__(self, dano_magia, dano_distancia, dano_corpoacorpo):
+        self.dano_magia = dano_magia
+        self.dano_distancia = dano_distancia
+        self.dano_corpoacorpo = dano_corpoacorpo
+    
+    def escolher_classe(self):
+        while True:
+            escolha_d_classe = input("Qual classe você deseja ser?\n1-Mago\n2-Guerreiro\n3-Arqueiro\nSua escolha: ")
+            if escolha_d_classe == "1":
+                dano_classe = classe(10,0,0)
+                break
+            elif escolha_d_classe == "2":
+                dano_classe = classe(0,0,10)
+                break
+            elif escolha_d_classe == "3":
+                dano_classe = classe(0,10,0)
+                break
+            else:
+                time.sleep(1)
+                print("Insira uma Classe valida")
+                time.sleep(2)
+        dano_classe = dano_classe
+
+# # tempo
 dia = 1
 tempo = "dia"
 
-
-# dialogo de introdução
-print("Seja bem vindo a aventura de...")
-time.sleep(2)
-nome_jogador = input(f"???: A é qual é seu nome? \n meu nome é ")
-time.sleep(2)
-# escolha da raça 
-while True:    
-    escolha_d_raca = input("\nE qual de qual raça você quer ser? \n1-humano\n   -força maior\n   -status basicos\n2-Anão\n   -Velocidade reduzida\n   -Força reduzida\n   -Vida maior\n   -passa por lugares pequenos\n   -fabrição na ferraria liberado\n3-Elfo\n   -Conhecimento em magia\n   -conhecimento da floresta\n   -status basicos\nSua escolha: ")
-    raca = ""
-    if escolha_d_raca == "1":
-        raca = "Humano"
-        status_jogador = atributos(100, 15, 10, 0, False)
-        clear_terminal()
-        break
-    elif escolha_d_raca == "2":
-        raca = "Anão"
-        status_jogador = atributos(130, 6, 6, 0, True)
-        clear_terminal()
-        break
-    elif escolha_d_raca == "3":
-        raca = "Elfo"
-        status_jogador = atributos(100, 10, 10, 10, False)
-        clear_terminal()
-        break
-    else:
-        time.sleep(1)
-        print("Insira uma raça valida")
-        time.sleep(2)
-    clear_terminal()
-
-# dialogo inicial
-# time.sleep(2)
-# print("\n???: Oh obrigado, então recomeçando")
-# time.sleep(2)
-# print(f"Seja bem vindo a aventura de {nome_jogador}")
-# time.sleep(2)
-# print(f"{nome_jogador}: Só um minuto, Quem é você?")
-# time.sleep(2)
-
-# print("???: No momento não interessa pra Você, algum dia você acaba descobrindo")
-# time.sleep(2)
-# print("???: Mas agora o resto é com você, só não morre ok?")
-# time.sleep(2)
-# print(f"{nome_jogador}: Ok...")
-# time.sleep(2)
-# clear_terminal()
-# print(f"{nome_jogador}: Pra aonde vou agora?")
-# time.sleep(2)
-# print(f"{nome_jogador}: Ó tem uma cidade logo ali na frente")
-# time.sleep(2)
-
-# Localidades
+# # # Localidades
     
-    # loja
+# # loja
 def loja():
     clear_terminal()
+    time.sleep(1)
     print("---loja---")
-# escola de magia
+# # escola de magia
 def escola_d_magia():
     clear_terminal()
+    time.sleep(1)
     print("---Na escola---")
   
-# ferreiro
+# # ferreiro
 def ferreiro():
     time.sleep(2)
     clear_terminal()
+    time.sleep(1)
     print("---Na ferraria---")
     decisao = input("O que deseja fazer?\n 1-Falar com o ferreiro\n 2-Forjar\n 3-Sair\nEscolha: ")
     if decisao == "1" and dia <= 5:
@@ -115,16 +91,15 @@ def ferreiro():
         cidade()
     else:
         ferreiro()
-
-# cultos -> senha do tinhoso -> aleatoria toda nova vez       
-# set de coisas para cultista
+  
+# # set de coisas para cultista
 import random
 senha = random.randint(34566, 94563)
 cultista_morto = True
 cultistas = ["Carlos", "Fernanda", "Ricardo", "jorje", "João", "Larissa", "Pedro", "Bianca", "Felipe", "Gabriela", "Eduardo", "Isabel", "Miguel", "Thais", "Arthur", "Marina", "Rodrigo", "Beatriz", "Daniel", "Laura"]
 nome_cultista = random.choice(cultistas)
 culto_liberado = False
-# culto
+# # culto
 def entrar_culto():
     clear_terminal()
     time.sleep(1)
@@ -185,10 +160,10 @@ def entrar_culto():
                 time.sleep(2)
 
 
-
-# Cidade/menu
+# # Cidade/menu
 def cidade():
     clear_terminal()
+    time.sleep(1)
     print("---Na cidade---")
     print(f"\nVejamos, oque posso fazer agora")
     decisao = input("1 - Ir a ferraria\n2 - Ver as lojas\n3 - ir a academia de magia\n4 - Ir aos becos\nEscolha: ")
@@ -202,59 +177,101 @@ def cidade():
         entrar_culto()
     else:
         cidade()
+
+
+# dialogo de introdução
+print("Seja bem vindo a aventura de...")
+time.sleep(2)
+nome_jogador = input(f"???: A é qual é seu nome? \n meu nome é ")
+time.sleep(2)
+# escolha da raça 
+while True:    
+    escolha_d_raca = input("\nE qual de qual raça você quer ser? \n1-humano\n   -força maior\n   -status basicos\n2-Anão\n   -Velocidade reduzida\n   -Força reduzida\n   -Vida maior\n   -passa por lugares pequenos\n   -fabrição na ferraria liberado\n3-Elfo\n   -Conhecimento em magia\n   -conhecimento da floresta\n   -status basicos\nSua escolha: ")
+    raca = ""
+    if escolha_d_raca == "1":
+        raca = "Humano"
+        status_jogador = atributos(100, 15, 10, 0, False)
+        clear_terminal()
+        break
+    elif escolha_d_raca == "2":
+        raca = "Anão"
+        status_jogador = atributos(130, 6, 6, 0, True)
+        clear_terminal()
+        break
+    elif escolha_d_raca == "3":
+        raca = "Elfo"
+        status_jogador = atributos(100, 10, 10, 10, False)
+        clear_terminal()
+        break
+    else:
+        time.sleep(1)
+        print("Insira uma raça valida")
+        time.sleep(2)
+    clear_terminal()
+
+# # dialogo inicial
+time.sleep(2)
+print("\n???: Oh obrigado, então recomeçando")
+time.sleep(2)
+print(f"Seja bem vindo a aventura de {nome_jogador}")
+time.sleep(2)
+print(f"{nome_jogador}: Só um minuto, Quem é você?")
+time.sleep(2)
+
+print("???: No momento não interessa pra Você, algum dia você acaba descobrindo")
+time.sleep(2)
+print("???: Mas agora o resto é com você, só não morre ok?")
+time.sleep(2)
+print(f"{nome_jogador}: Ok...")
+time.sleep(2)
+clear_terminal()
+print(f"{nome_jogador}: Pra aonde vou agora?")
+time.sleep(2)
+print(f"{nome_jogador}: Ó tem uma cidade logo ali na frente")
+time.sleep(2)
 cidade()
     
-
-
-
+# floresta 
+def floresta():
+    clear_terminal()
+    Locais = ['Ruinas', 'Campos', 'Floresta']
+    local_esc = random.choice(Locais)
+    time.sleep(2)
+    print("---Na floresta---")
+    time.sleep(1)
+    decisao = input(f'O que deseja fazer agora?\n1 - Explorar{local_esc}\n2 - Explorar por recursos\n 3 - Voltar para a cidade\nEscolha:')
+    if decisao == "1":
+        combate()
+    elif decisao == "2":
+        pass
+    elif decisao == "3":
+        time.sleep(1)
+        cidade()
+    else:
+        floresta()
 
 # iniciação a aventura 
-    # escolher classe
-class classe:
-    def __init__(self, dano_magia, dano_distancia, dano_corpoacorpo):
-        self.dano_magia = dano_magia
-        self.dano_distancia = dano_distancia
-        self.dano_corpoacorpo = dano_corpoacorpo
-    
-    def escolher_classe(self):
-        while True:
-            escolha_d_classe = input("Qual classe você deseja ser?\n1-Mago\n2-Guerreiro\n3-Arqueiro\nSua escolha: ")
-            if escolha_d_classe == "1":
-                dano_classe = classe(10,0,0)
-                break
-            elif escolha_d_classe == "2":
-                dano_classe = classe(0,0,10)
-                break
-            elif escolha_d_classe == "3":
-                dano_classe = classe(0,10,0)
-                break
-            else:
-                time.sleep(1)
-                print("Insira uma Classe valida")
-                time.sleep(2)
-        dano_classe = dano_classe
 
 # status, armas e armaduras do personagem
 
-
-
-# escolher local
-    # cidade
-        # ferreiro
-        # lojas
-        # cultos
-        # escolas de magia
-    # floresta 
-        # monstros
-        # aldeias 
-        # zona de perigo em geral
-
 #  sitema de combate
-    # vida
-    # ataques
-    # ouro
-    # nives/xp
-    # pontos de habilidade
+def combate():
+    clear_terminal()
+    import Rpg.monstros as monstros
+    time.sleep(1)
+    print('---Em combate---')
+    time.sleep(1)
+    print('Você encontrou:')
+    monstros.monstro()
+
+# vida
+# ataques
+# ouro
+# nives/xp
+# pontos de habilidade
+
+
+
 
 # pos batalha 
     # descançar
